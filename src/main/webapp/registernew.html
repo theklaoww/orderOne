@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>orderOne</title>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sarabun">
+        <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+        <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+        <link rel="stylesheet" href="assets/css/Animated-Typing-With-Blinking.css">
+        <link rel="stylesheet" href="assets/css/Animation-Cards-1.css">
+        <link rel="stylesheet" href="assets/css/Animation-Cards.css">
+        <link rel="stylesheet" href="assets/css/Features-Boxed.css">
+        <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+        <link rel="stylesheet" href="assets/css/Highlight-Blue.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+        <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+        <link rel="stylesheet" href="assets/css/wtg-alert-1.css">
+        <link rel="stylesheet" href="assets/css/wtg-alert.css">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
+            <div class="container"><a class="navbar-brand logo" href="index.html"><img src="assets/img/orderOneLogo.png" style="width: 170px;"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav" style="border-radius: 9px;border-width: 0px;border-style: none;background: rgba(255,255,255,0.11);"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div
+                    class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item" style="text-align: center;padding-right: 0px;">
+                            <a class="nav-link" href="register.jsp" style="text-align: center;width: 90;font-family: Sarabun, sans-serif;font-weight: normal;">
+                                <div style="width: 130px;"></div>ลงทะเบียน</a>
+                        </li>
+                        <li class="nav-item" style="text-align: center;padding-right: 0px;"><a class="nav-link" href="register.jsp" style="text-align: center;width: 90;background: rgba(255,255,255,0.13);border-radius: 14px;font-family: Lato, sans-serif;">LOGIN</a>
+                            <div style="width: 140px;"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="login-clean" style="height: 1116px;">
+            <div style="height: 46px;"></div>
+            <form data-aos="fade-up" data-aos-once="true" method="post" style="height: 942px;max-width: 399px;" action="Register">
+                <div class="illustration" style="font-size: 79px;filter: blur(0px);"><i class="fas fa-id-badge" style="color: rgb(54,143,252);"></i></div>
+                <h2 class="sr-only">Login Form</h2>
+                <h1 style="text-align: center;font-family: Sarabun, sans-serif;font-size: 29px;font-weight: normal;color: rgb(117,117,118);">สมัครสมาชิก</h1>
+                <div style="height: 28px;"></div>
+                <div class="form-group"><input class="form-control" type="text" name="username" placeholder="username" style="font-family: Montserrat, sans-serif;height: 44px;"></div>
+                <div class="form-group" style="font-family: Montserrat, sans-serif;height: 44px;"><input class="form-control" type="password" name="password" placeholder="Password" style="font-family: Montserrat, sans-serif;height: 44px;"></div>
+                <div class="form-group" style="font-family: Montserrat, sans-serif;height: 44px;"><input class="form-control" type="password" name="cpassword" placeholder="Password repeat" style="font-family: Montserrat, sans-serif;height: 44px;"></div>
+                <div style="height: 44px;font-family: Montserrat, sans-serif;"></div>
+                <div class="form-group" style="font-family: Montserrat, sans-serif;height: 44px;"><input class="form-control" type="text" name="firstname" placeholder="firstname" style="font-family: Montserrat, sans-serif;height: 44px;"></div>
+                <div class="form-group" style="font-family: Montserrat, sans-serif;height: 44px;"><input class="form-control" type="text" name="lastname" placeholder="lastname" style="font-family: Montserrat, sans-serif;height: 44px;"></div>
+                <div class="form-group" style="font-family: Montserrat, sans-serif;height: 44px;"><input class="form-control" type="text" name="phonenumber" placeholder="phone" style="font-family: Montserrat, sans-serif;height: 44px;"></div>
+                <div style="height: 44px;font-family: Montserrat, sans-serif;"><a class="forgot" href="#" style="font-family: Sarabun, sans-serif;height: 44px;">DealerCODE<br>จะได้รับจากตัวแทนที่ท่านติดต่อด้วย</a></div>
+                <div class="form-group" style="font-family: Montserrat, sans-serif;height: 44px;"><input class="form-control" type="text" name="code" placeholder="DealerCODE" style="font-family: Montserrat, sans-serif;height: 44px;border-radius: 32px;"></div>
+
+                <%
+                if(request.getAttribute("result") != null && request.getAttribute("result") == "222"){
+                %>
+                <div role="alert" class="alert alert-danger d-flex justify-content-center" style="border-style: none;box-shadow: 0px 0px 3px 0px rgb(248,215,218);"><i class="far fa-id-card" style="font-size: 22px;"></i><span style="padding-left: 11px;font-family: Sarabun, sans-serif;"><strong>dealerCODE ไม่ถูกต้อง</strong></span></div>
+                <%
+                }
+                %>
+
+
+                <div class="form-group" style="font-family: Montserrat, sans-serif;"><button class="btn btn-primary btn-block bounce animated" type="submit" value="login" style="border-radius: 44px;background: rgb(54,143,252);font-family: Montserrat, sans-serif;box-shadow: 0px 0px 10px 1px rgba(54,143,252,0.57);margin-top: 57px;font-weight: bold;font-size: 18px;">register</button></div>
+            </form>
+        </div>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/bs-init.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
+        <script src="assets/js/Animated-Typing-With-Blinking.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+        <script src="assets/js/theme.js"></script>
+    </body>
+
+</html>
