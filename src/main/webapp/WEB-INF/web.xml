@@ -32,6 +32,10 @@
         <servlet-name>LoginAdminServlet</servlet-name>
         <servlet-class>servlets.LoginAdminServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>OrderViewServlet</servlet-name>
+        <servlet-class>servlets.OrderViewServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>LoginAdminServlet</servlet-name>
         <url-pattern>/LoginAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderViewServlet</servlet-name>
+        <url-pattern>/OrderView</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

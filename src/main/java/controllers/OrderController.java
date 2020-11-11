@@ -10,17 +10,19 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import models.Order;
 import models.OrderDetail;
+import models.Product;
 
 /**
  *
  * @author User
  */
 public class OrderController {
-    
+
     Connection conn;
 
     public Order getOrderById(int orderId) throws SQLException {
@@ -41,15 +43,15 @@ public class OrderController {
         }
         return null;
     }
-    
+
     public int addOrder(int userId) {
         try {
             conn = BuildConnection.getConnection();
             PreparedStatement ps = conn.prepareStatement("insert into orders (user_id) values (?)");
             ps.setInt(1, userId);
-            
+
             ps.executeUpdate();
-            
+
             ps = conn.prepareStatement("select * from orders where user_id = ? order by order_id desc limit 1");
             ps.setInt(1, userId);
             ResultSet rs = ps.executeQuery();
@@ -64,7 +66,7 @@ public class OrderController {
         return 0;
 
     }
-    
+
     public boolean addOrderDetail(OrderDetail od) {
         try {
             conn = BuildConnection.getConnection();
@@ -79,5 +81,46 @@ public class OrderController {
         }
         return false;
 
+    }
+    
+    public ArrayList<Order> getAllOrder() throws SQLException {
+        conn = BuildConnection.getConnection();
+        PreparedStatement ps = conn.prepareStatement("select * from orders");        
+        ResultSet rs = ps.executeQuery();
+        
+    
+        ArrayList<Order> allOrder = new ArrayList();
+        while (rs.next()) {            
+            allOrder.add(new Order(rs.getInt("order_id"), rs.getInt("user_id")));
+        }
+         return allOrder;
+    }
+
+    public ArrayList<OrderDetail> getOrderDetial(int orderId) throws SQLException {
+        conn = BuildConnection.getConnection();
+        PreparedStatement ps = conn.prepareStatement("select * from order_details where order_id = ?");
+
+        ps.setInt(1, orderId);
+        ResultSet rs = ps.executeQuery();
+        ArrayList<OrderDetail> allOrder = new ArrayList();
+        while (rs.next()) {
+            allOrder.add(new OrderDetail(rs.getInt("order_id"), rs.getInt("product_id"), rs.getInt("amount")));
+        }
+        return allOrder;
+
+    }
+
+    public static void main(String[] args) throws SQLException {
+        OrderController oct = new OrderController();
+        ArrayList<OrderDetail> od = oct.getOrderDetial(3);
+
+        ProductController pct = new ProductController();
+
+        for (OrderDetail orderDetail : od) {
+            Product p = pct.getProductById(orderDetail.getProductId());
+            System.out.println(p.getProductName());
+            System.out.println(orderDetail.getAmount());
+            System.out.println(p.getProductPrice() * orderDetail.getAmount());
+        }
     }
 }

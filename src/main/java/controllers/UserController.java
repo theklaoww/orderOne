@@ -41,6 +41,25 @@ public class UserController {
         }
         return null;
     }
+    
+    public User getUserById(int userId) throws SQLException {
+
+        try {
+
+            conn = BuildConnection.getConnection();
+            PreparedStatement ps = conn.prepareStatement("select * from users where id = ?");
+            ps.setInt(1, userId);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return new User(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("phone_number"), rs.getString("code"));
+            }
+            rs.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 
     public User getAdminCode(String code) throws SQLException {
 
