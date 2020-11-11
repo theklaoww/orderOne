@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -40,19 +42,43 @@ public class ReportServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         
-        String orderId = request.getParameter("");
+        String orderId = request.getParameter("order_id");
+        String orderBy = request.getParameter("orderby");
+        
+        if(orderId.isEmpty() || orderBy.isEmpty()) {
+            response.sendRedirect("OrderView");
+            return;
+        }
         
         OrderController oct = new OrderController();
-        ArrayList<OrderDetail> od = oct.getOrderDetial(3);
+        ArrayList<OrderDetail> od = oct.getOrderDetial(Integer.valueOf(orderId));
 
         ProductController pct = new ProductController();
+        
+        ArrayList<List> orderDetails = new ArrayList<>();
+        
+        int totalPrice = 0;
 
         for (OrderDetail orderDetail : od) {
             Product p = pct.getProductById(orderDetail.getProductId());
             System.out.println(p.getProductName());
             System.out.println(orderDetail.getAmount());
             System.out.println(p.getProductPrice() * orderDetail.getAmount());
+            
+            int price = p.getProductPrice() * orderDetail.getAmount();
+            
+            totalPrice = totalPrice + price;
+            
+            List<String> result = Arrays.asList(String.valueOf(p.getProductName()), String.valueOf(orderDetail.getAmount()), String.valueOf(price));
+            orderDetails.add(result); // ad
         }
+        
+        //[{}, {}, {}]
+        request.setAttribute("fname", orderBy);
+        request.setAttribute("orderId", orderId);
+        request.setAttribute("totalP", totalPrice);
+        request.setAttribute("orderDetails", orderDetails);
+        request.getRequestDispatcher("/report.jsp").forward(request, response);
     }
         
     

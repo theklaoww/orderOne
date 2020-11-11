@@ -61,6 +61,25 @@ public class AdminController {
     }
     
 
+    public Admin getAdminByCode(String code) throws SQLException {
+
+        try {
+
+            conn = BuildConnection.getConnection();
+            PreparedStatement ps = conn.prepareStatement("select * from admin where code = ?");
+            ps.setString(1, code);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return new Admin( rs.getString("username"), rs.getString("password"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("phone_number"), rs.getInt("code"));
+            }
+            rs.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
 
     public Admin getAdminByUsername(String username) throws SQLException {
 
@@ -80,4 +99,11 @@ public class AdminController {
         }
         return null;
     }
+    
+    public static void main(String[] args) throws SQLException {
+        AdminController act = new AdminController();
+        
+        System.out.println(act.getAdminByCode("5526"));
+    }
+    
 }

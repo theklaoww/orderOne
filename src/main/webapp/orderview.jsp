@@ -18,9 +18,8 @@
         <h1>orderview</h1>
         
         
-        ${orderlist}
         <c:forEach items="${orderlist}"  var="ol">
-                ${ol.userId}
+            <div> ${ol.orderId} order by ${ol.user.firstname} <a href="Report?order_id=${ol.orderId}&orderby=${ol.user.firstname}">View Details</a></div>
     </c:forEach>
     </body>
 </html>

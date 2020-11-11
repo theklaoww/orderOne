@@ -5,6 +5,7 @@
  */
 package servlets;
 
+import controllers.AdminController;
 import controllers.OrderController;
 import controllers.PaymentController;
 import controllers.ProductController;
@@ -19,6 +20,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.Admin;
 import models.Cart;
 import models.Order;
 import models.OrderDetail;
@@ -49,10 +51,15 @@ public class PaymentServlet extends HttpServlet {
         OrderController oct = new OrderController();
         User s = (User) request.getSession().getAttribute("user");
         PaymentController pyc = new PaymentController();
-
+        AdminController act = new AdminController();
+        Admin a = act.getAdminByCode(s.getCode());
+        
+       
+        
+        
         ArrayList<Cart> orderList = (ArrayList<Cart>) request.getSession().getAttribute("cartview");
-
-        System.out.println(orderList);
+        
+        //System.out.println(orderList);
         Product p;
 
         if (paymentOption.contains("cod")) {
@@ -63,8 +70,9 @@ public class PaymentServlet extends HttpServlet {
                 //System.out.println(p.getId());
                 oct.addOrderDetail(new OrderDetail(order_id, p.getId(), cart.getAmount()));
                 pyc.addPaymentType(order_id, "COD", (int) request.getSession().getAttribute("totalprice"));
-
             }
+          //  request.getSession().setAttribute("adminInfo", a.getPhoneNumber());
+            
             request.setAttribute("paymenttype", "COD");
             request.setAttribute("oid", order_id);
             request.getRequestDispatcher("/completeOrder.jsp").forward(request, response);
@@ -80,21 +88,23 @@ public class PaymentServlet extends HttpServlet {
                 pyc.addPaymentType(order_id, "QR", (int) request.getSession().getAttribute("totalprice"));
 
             }
+            request.setAttribute("adminInfo", a);
             request.setAttribute("paymenttype", "QR");
             request.setAttribute("oid", order_id);
+            request.setAttribute("totalprice", request.getSession().getAttribute("totalprice"));
             request.getRequestDispatcher("/completeOrder.jsp").forward(request, response);
 
-        } else if (paymentOption.contains("bank")) {
+        } else if (paymentOption.contains("promptpay")) {
             int order_id = oct.addOrder(s.getId());
 
             for (Cart cart : orderList) {
                 p = pct.getProductIdByProductName(cart.getProductName());
 
                 oct.addOrderDetail(new OrderDetail(order_id, p.getId(), cart.getAmount()));
-                pyc.addPaymentType(order_id, "BANK", (int) request.getSession().getAttribute("totalprice"));
+                pyc.addPaymentType(order_id, "promptpay", (int) request.getSession().getAttribute("totalprice"));
 
             }
-            request.setAttribute("paymenttype", "BANK");
+            request.setAttribute("paymenttype", "promptpay");
             request.setAttribute("oid", order_id);
             request.getRequestDispatcher("/completeOrder.jsp").forward(request, response);
 

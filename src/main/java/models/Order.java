@@ -12,7 +12,8 @@ package models;
 public class Order {
     private int orderId;
     private int userId;
-
+    private User user;
+    
     public int getOrderId() {
         return orderId;
     }
@@ -29,6 +30,14 @@ public class Order {
         this.userId = userId;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public Order() {
     }
 
@@ -37,9 +46,15 @@ public class Order {
         this.userId = userId;
     }
 
+    public Order(int orderId, int userId, User user) {
+        this.orderId = orderId;
+        this.userId = userId;
+        this.user = user;
+    }
+
     @Override
     public String toString() {
-        return "Order{" + "orderId=" + orderId + ", userId=" + userId + '}';
+        return "Order{" + "orderId=" + orderId + ", userId=" + userId + ", user=" + user + '}';
     }
     
 }

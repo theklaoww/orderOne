@@ -4,6 +4,7 @@
     Author     : User
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,9 +13,13 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="Report" method="POST">
+        <c:forEach items="${orderDetails}" var="od" varStatus="loop">
+            <div> ${od[0]} ${od[1]} ${od[2]}  </div>
             
             
-        </form>
+        </c:forEach>
+            ${totalP}
+            OrderID#${orderId}
+            name=${fname}
     </body>
 </html>

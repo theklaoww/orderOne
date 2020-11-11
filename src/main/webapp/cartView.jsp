@@ -131,9 +131,9 @@
             <div style="height: auto;width: 100%;font-weight: normal;"></div>
             <div class="row no-gutters row-cols-2" style="width: 100%;margin-left: 0px;margin-right: 0px;">
                 <div class="col-md-6" style="font-weight: normal;">
-                    <h4 class="text-left" style="width: 256px;margin-bottom: auto;font-style: normal;font-weight: normal;font-family: Sarabun, sans-serif;height: 100%;font-size: 18px;margin-top: auto;"><input type="radio" style="margin-right: 9px;" id="bank" name="pay_option" value="bank" /><label for="bank">บัญชีธนาคาร</label></h4>
+                    <h4 class="text-left" style="width: 256px;margin-bottom: auto;font-style: normal;font-weight: normal;font-family: Sarabun, sans-serif;height: 100%;font-size: 18px;margin-top: auto;"><input type="radio" style="margin-right: 9px;" id="promptpay" name="pay_option" value="promptpay" /><label for="promptpay">promptpay</label></h4>
                 </div>
-                <div class="col-md-6 text-right" style="text-align: right;margin-top: auto;margin-bottom: auto;"><i class="fa fa-university" style="text-align: right;margin-top: auto;"></i></div>
+                <div class="col-md-6 text-right" style="text-align: right;margin-top: auto;margin-bottom: auto;"><i class="fab fa-paypal" style="text-align: right;margin-top: auto;"></i></div>
             </div>
         </div>
          <div style="height: 178px;margin-right: auto;margin-left: auto;padding-right: 0px;padding-left: 0px;padding-bottom: 0px;">

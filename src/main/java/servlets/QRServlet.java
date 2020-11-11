@@ -32,7 +32,7 @@ public class QRServlet extends HttpServlet {
         String price = request.getParameter("price");
         String link = "https://promptpay.io/0873350601/"+ price +".png";
         request.setAttribute("link", link);
-        request.getRequestDispatcher("qr.jsp").forward(request, response);
+        request.getRequestDispatcher("/completeOrder.jsp").forward(request, response);
     
         
 }

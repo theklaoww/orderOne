@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import models.Order;
 import models.OrderDetail;
 import models.Product;
+import models.User;
 
 /**
  *
@@ -88,10 +89,15 @@ public class OrderController {
         PreparedStatement ps = conn.prepareStatement("select * from orders");        
         ResultSet rs = ps.executeQuery();
         
-    
+        UserController uct = new UserController();
         ArrayList<Order> allOrder = new ArrayList();
         while (rs.next()) {            
-            allOrder.add(new Order(rs.getInt("order_id"), rs.getInt("user_id")));
+            
+            
+            User user = uct.getUserById(rs.getInt("user_id"));
+            
+            
+            allOrder.add(new Order(rs.getInt("order_id"), rs.getInt("user_id"), user));
         }
          return allOrder;
     }
