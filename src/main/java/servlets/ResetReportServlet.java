@@ -9,20 +9,18 @@ import controllers.AdminController;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import models.Admin;
 
 /**
  *
  * @author User
  */
-public class LoginAdminServlet extends HttpServlet {
+public class ResetReportServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,36 +33,12 @@ public class LoginAdminServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-
-        if (username.trim().isEmpty() || password.trim().isEmpty()) {
-            request.setAttribute("message", "username or password not right");
-            request.getRequestDispatcher("/loginAdmin.jsp").forward(request, response);
-        }
-
+        
         AdminController act = new AdminController();
-        Admin a = act.getAdminByUsername(username);
-
-        if (a != null) {
-            if (password.equals(a.getPassword())) {
-                request.getSession().setAttribute("admin", a);
-                request.getSession().setAttribute("adminFname", a.getFirstname());
-                request.getSession().setAttribute("adminLname", a.getLastname());
-                request.getSession().setAttribute("adminCODE", a.getCode());
-                
-                request.getRequestDispatcher("/WEB-INF/adminHome.jsp").forward(request, response);
-
-            } else {
-                request.setAttribute("loginResult", "falseja");
-                request.getRequestDispatcher("/loginAdmin.jsp").forward(request, response);
-
-            }
-        }
-
-        request.setAttribute("loginResult", "falseja");
-        request.getRequestDispatcher("/loginAdmin.jsp").forward(request, response);
-
+        act.resetReportOrder();
+        
+        request.getRequestDispatcher("/OrderView").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -82,7 +56,7 @@ public class LoginAdminServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(LoginAdminServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResetReportServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -100,7 +74,7 @@ public class LoginAdminServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(LoginAdminServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResetReportServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

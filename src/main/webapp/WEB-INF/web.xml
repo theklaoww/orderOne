@@ -36,6 +36,18 @@
         <servlet-name>OrderViewServlet</servlet-name>
         <servlet-class>servlets.OrderViewServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminHomeServlet</servlet-name>
+        <servlet-class>servlets.AdminHomeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutAdminServlet</servlet-name>
+        <servlet-class>servlets.LogoutAdminServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResetReportServlet</servlet-name>
+        <servlet-class>servlets.ResetReportServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -71,6 +83,18 @@
     <servlet-mapping>
         <servlet-name>OrderViewServlet</servlet-name>
         <url-pattern>/OrderView</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminHomeServlet</servlet-name>
+        <url-pattern>/AdminHome</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutAdminServlet</servlet-name>
+        <url-pattern>/LogoutAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetReportServlet</servlet-name>
+        <url-pattern>/ResetReport</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

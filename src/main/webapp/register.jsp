@@ -62,7 +62,6 @@
                 <div role="alert" class="alert alert-warning d-flex justify-content-center" style="border-style: none;box-shadow: 0px 0px 3px 0px rgb(248,215,218);"><i class="fas fa-user" style="font-size: 22px;"></i><span style="padding-left: 11px;font-family: Sarabun, sans-serif;"><strong>username ถูกใช้แล้ว</strong></span></div>
                         <%
                             }
-
                         %>
                         <%                    if (request.getAttribute("result") != null && request.getAttribute("result") == "222") {
                         %>

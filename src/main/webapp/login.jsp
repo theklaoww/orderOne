@@ -1,18 +1,31 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>orderOne</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sarabun">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
-    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
-</head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>orderOne-Login</title>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sarabun">
+        <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+        <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+        <link rel="stylesheet" href="assets/css/Animated-Typing-With-Blinking.css">
+        <link rel="stylesheet" href="assets/css/Animation-Cards-1.css">
+        <link rel="stylesheet" href="assets/css/Animation-Cards.css">
+        <link rel="stylesheet" href="assets/css/Features-Boxed.css">
+        <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+        <link rel="stylesheet" href="assets/css/Highlight-Blue.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+        <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+        <link rel="stylesheet" href="assets/css/wtg-alert-1.css">
+        <link rel="stylesheet" href="assets/css/wtg-alert.css">
+
+    </head>
 
 <body>
 <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white text-center d-xl-flex justify-content-xl-center portfolio-navbar gradient">
@@ -40,7 +53,17 @@
 
 
     </div>
-
+            <div style="height: 163px;"></div>
+ <div class="footer-dark" style="height: 222px;">
+    <footer>
+        <div class="container" style="padding-top: 28px;">
+            <h1 style="font-family: Montserrat, sans-serif;font-size: 13px;font-weight: bold;color: rgb(117,117,118);padding-bottom: 0px;text-align: center;"><strong>Powered by</strong><br /></h1>
+            <a href="loginAdmin.jsp" style="height: 305px;width: 66px;">
+                <div style="text-align: center;"><img src="orderOneLogo.png" style="width: 170px;text-align: center;opacity: 0.21;" /></div>
+            </a>
+        </div>
+    </footer>
+</div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>

@@ -72,7 +72,7 @@ public class PaymentServlet extends HttpServlet {
                 pyc.addPaymentType(order_id, "COD", (int) request.getSession().getAttribute("totalprice"));
             }
           //  request.getSession().setAttribute("adminInfo", a.getPhoneNumber());
-            
+            request.setAttribute("adminPhone", a.getPhoneNumber());
             request.setAttribute("paymenttype", "COD");
             request.setAttribute("oid", order_id);
             request.getRequestDispatcher("/completeOrder.jsp").forward(request, response);
@@ -88,7 +88,7 @@ public class PaymentServlet extends HttpServlet {
                 pyc.addPaymentType(order_id, "QR", (int) request.getSession().getAttribute("totalprice"));
 
             }
-            request.setAttribute("adminInfo", a);
+            request.setAttribute("adminPhone", a.getPhoneNumber());
             request.setAttribute("paymenttype", "QR");
             request.setAttribute("oid", order_id);
             request.setAttribute("totalprice", request.getSession().getAttribute("totalprice"));
@@ -104,6 +104,9 @@ public class PaymentServlet extends HttpServlet {
                 pyc.addPaymentType(order_id, "promptpay", (int) request.getSession().getAttribute("totalprice"));
 
             }
+            request.setAttribute("adminfirstname", a.getFirstname());
+            request.setAttribute("adminlastname", a.getLastname());
+            request.setAttribute("adminPhone", a.getPhoneNumber());
             request.setAttribute("paymenttype", "promptpay");
             request.setAttribute("oid", order_id);
             request.getRequestDispatcher("/completeOrder.jsp").forward(request, response);

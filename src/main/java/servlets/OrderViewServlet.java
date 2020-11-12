@@ -5,6 +5,7 @@
  */
 package servlets;
 
+import controllers.AdminController;
 import controllers.OrderController;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -35,10 +36,11 @@ public class OrderViewServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
-
+        
+        
         OrderController oct = new OrderController();
         ArrayList<Order> o = oct.getAllOrder();
-        
+        request.getSession();
         request.setAttribute("orderlist", o);
         request.getRequestDispatcher("/orderview.jsp").forward(request, response);
     }

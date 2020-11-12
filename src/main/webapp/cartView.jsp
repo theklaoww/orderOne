@@ -104,7 +104,7 @@
 
 <div class="container" style="height: 100%;margin-top: 10px;">
     <div></div>
-    <form action="Payment" method="POST">
+    <form action="Payment" method="POST" >
      <div class="card" style="border-radius: 0;border-style: none;margin-bottom: 20px;background: rgba(255,255,255,0);">
         <div>
             <h4 class="text-left" style="width: auto;margin-bottom: 20px;font-style: normal;font-weight: bold;font-family: Sarabun, sans-serif;margin-top: 20px;"><i class="fas fa-dollar-sign" style="margin-right: 10px;"></i>วิธีการชำระเงิน</h4>
@@ -113,7 +113,7 @@
             <div style="height: auto;width: 100%;"></div>
             <div class="row no-gutters row-cols-2" style="width: 100%;margin-left: 0px;margin-right: 0px;">
                 <div class="col-md-6">
-                    <h4 class="text-left" style="width: 256px;margin-bottom: auto;font-style: normal;font-weight: normal;font-family: Sarabun, sans-serif;height: 100%;font-size: 18px;margin-top: auto;"><input type="radio" style="margin-right: 9px;font-weight: normal;" id="cod" name="pay_option" value="cod" /><label for="cod">เก็บเงินปลายทาง</label></h4>
+                    <h4 class="text-left" style="width: 256px;margin-bottom: auto;font-style: normal;font-weight: normal;font-family: Sarabun, sans-serif;height: 100%;font-size: 18px;margin-top: auto;"><input type="radio" style="margin-right: 9px;font-weight: normal;" id="cod" name="pay_option" value="cod" required/><label for="cod">เก็บเงินปลายทาง</label></h4>
                 </div>
                 <div class="col-md-6 text-right" style="text-align: right;margin-top: auto;margin-bottom: auto;font-weight: normal;"><i class="far fa-money-bill-alt" style="text-align: right;margin-top: auto;font-weight: normal;"></i></div>
             </div>
@@ -122,7 +122,7 @@
             <div style="height: auto;width: 100%;font-weight: normal;"></div>
             <div class="row no-gutters row-cols-2" style="width: 100%;margin-left: 0px;margin-right: 0px;">
                 <div class="col-md-6" style="font-weight: normal;">
-                    <h4 class="text-left" style="width: 256px;margin-bottom: auto;font-style: normal;font-weight: normal;font-family: Sarabun, sans-serif;height: 100%;font-size: 18px;margin-top: auto;"><input type="radio" style="margin-right: 9px;" id="qr" name="pay_option" value="qr" /><label for="qr">QR PAY</label></h4>
+                    <h4 class="text-left" style="width: 256px;margin-bottom: auto;font-style: normal;font-weight: normal;font-family: Sarabun, sans-serif;height: 100%;font-size: 18px;margin-top: auto;"><input type="radio" style="margin-right: 9px;" id="qr" name="pay_option" value="qr" required/><label for="qr">QR PAY</label></h4>
                 </div>
                 <div class="col-md-6 text-right" style="text-align: right;margin-top: auto;margin-bottom: auto;"><i class="fas fa-qrcode" style="text-align: right;margin-top: auto;"></i></div>
             </div>
@@ -131,7 +131,7 @@
             <div style="height: auto;width: 100%;font-weight: normal;"></div>
             <div class="row no-gutters row-cols-2" style="width: 100%;margin-left: 0px;margin-right: 0px;">
                 <div class="col-md-6" style="font-weight: normal;">
-                    <h4 class="text-left" style="width: 256px;margin-bottom: auto;font-style: normal;font-weight: normal;font-family: Sarabun, sans-serif;height: 100%;font-size: 18px;margin-top: auto;"><input type="radio" style="margin-right: 9px;" id="promptpay" name="pay_option" value="promptpay" /><label for="promptpay">promptpay</label></h4>
+                    <h4 class="text-left" style="width: 256px;margin-bottom: auto;font-style: normal;font-weight: normal;font-family: Sarabun, sans-serif;height: 100%;font-size: 18px;margin-top: auto;"><input type="radio" style="margin-right: 9px;" id="promptpay" name="pay_option" value="promptpay" required/><label for="promptpay">promptpay</label></h4>
                 </div>
                 <div class="col-md-6 text-right" style="text-align: right;margin-top: auto;margin-bottom: auto;"><i class="fab fa-paypal" style="text-align: right;margin-top: auto;"></i></div>
             </div>

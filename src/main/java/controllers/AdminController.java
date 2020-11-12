@@ -19,9 +19,9 @@ import models.Admin;
  * @author User
  */
 public class AdminController {
-    
+
     Connection conn;
-    
+
     public Admin getAdminPass(String pass) throws SQLException {
 
         try {
@@ -40,7 +40,7 @@ public class AdminController {
         }
         return null;
     }
-    
+
     public boolean addAdmin(Admin a) {
         try {
             conn = BuildConnection.getConnection();
@@ -59,7 +59,6 @@ public class AdminController {
         return false;
 
     }
-    
 
     public Admin getAdminByCode(String code) throws SQLException {
 
@@ -70,7 +69,7 @@ public class AdminController {
             ps.setString(1, code);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return new Admin( rs.getString("username"), rs.getString("password"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("phone_number"), rs.getInt("code"));
+                return new Admin(rs.getString("username"), rs.getString("password"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("phone_number"), rs.getInt("code"));
             }
             rs.close();
             conn.close();
@@ -79,7 +78,6 @@ public class AdminController {
         }
         return null;
     }
-
 
     public Admin getAdminByUsername(String username) throws SQLException {
 
@@ -90,7 +88,7 @@ public class AdminController {
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return new Admin( rs.getString("username"), rs.getString("password"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("phone_number"), rs.getInt("code"));
+                return new Admin(rs.getString("username"), rs.getString("password"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("phone_number"), rs.getInt("code"));
             }
             rs.close();
             conn.close();
@@ -99,11 +97,32 @@ public class AdminController {
         }
         return null;
     }
-    
+
+    public void resetReportOrder() throws SQLException {
+        conn = BuildConnection.getConnection();
+        try {
+
+            
+            PreparedStatement ps1 = conn.prepareStatement("TRUNCATE TABLE order_one.order_details");
+            PreparedStatement ps2 = conn.prepareStatement("TRUNCATE TABLE order_one.orders");
+            PreparedStatement ps3 = conn.prepareStatement("TRUNCATE TABLE order_one.payments");
+
+            ps1.execute();
+            ps2.execute();
+            ps3.execute();
+            conn.close();
+            System.out.println("reset all table done");
+        } catch (SQLException ex) {
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+             System.out.println("can't all table ");
+        }
+
+    }
+
     public static void main(String[] args) throws SQLException {
         AdminController act = new AdminController();
-        
-        System.out.println(act.getAdminByCode("5526"));
+
+       act.resetReportOrder();
     }
-    
+
 }
