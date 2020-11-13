@@ -40,6 +40,9 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
         if (username.trim().isEmpty() || password.trim().isEmpty()) {
             request.setAttribute("message", "username or password not right");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
