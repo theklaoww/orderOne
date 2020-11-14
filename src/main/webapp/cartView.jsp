@@ -12,7 +12,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>orderOne2</title>
+        <title>orderOne cart</title>
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata">
@@ -44,7 +44,7 @@
                     class="collapse navbar-collapse d-xl-flex justify-content-xl-center" id="navcol-1">
                     <ul class="nav navbar-nav d-xl-flex mr-auto justify-content-xl-center">
                         <li class="nav-item text-center d-flex justify-content-center" style="padding-right: 0px;"></li>
-                    </ul><span class="d-flex justify-content-center navbar-text actions"><a class="d-flex align-items-center login" href="profile#" style="padding-right: 19px;font-family: Montserrat, sans-serif;font-weight: bold;font-size: 18px;">proflie</a><a class="btn btn-light d-flex align-items-center action-button" role="button" href="Logout" style="background: rgba(248,249,250,0.13);border-width: 0px;font-family: Montserrat, sans-serif;font-weight: bold;font-size: 18px;">logout</a></span></div>
+                    </ul><span class="d-flex justify-content-center navbar-text actions"><a class="d-flex align-items-center login" href="profile#" style="padding-right: 19px;font-family: Montserrat, sans-serif;font-weight: bold;font-size: 18px;"></a><a class="btn btn-light d-flex align-items-center action-button" role="button" href="Logout" style="background: rgba(248,249,250,0.13);border-width: 0px;font-family: Montserrat, sans-serif;font-weight: bold;font-size: 18px;">logout</a></span></div>
             </div>
         </nav>
 

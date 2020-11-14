@@ -48,6 +48,18 @@
         <servlet-name>ResetReportServlet</servlet-name>
         <servlet-class>servlets.ResetReportServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProductServlet</servlet-name>
+        <servlet-class>servlets.ProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveProductServlet</servlet-name>
+        <servlet-class>servlets.RemoveProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddProductServlet</servlet-name>
+        <servlet-class>servlets.AddProductServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -95,6 +107,18 @@
     <servlet-mapping>
         <servlet-name>ResetReportServlet</servlet-name>
         <url-pattern>/ResetReport</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductServlet</servlet-name>
+        <url-pattern>/Product</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveProductServlet</servlet-name>
+        <url-pattern>/RemoveProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProductServlet</servlet-name>
+        <url-pattern>/AddProduct</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

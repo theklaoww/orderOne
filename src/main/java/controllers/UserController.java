@@ -70,7 +70,7 @@ public class UserController {
             ps.setString(1, code);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return new User(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("phone_number"), rs.getString("code"));
+                return new User( rs.getString("username"), rs.getString("password"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("phone_number"), rs.getString("code"));
             }
             rs.close();
             conn.close();

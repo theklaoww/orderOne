@@ -69,13 +69,13 @@
         <div class="card-body" style="border-radius: 15px;border-style: none;box-shadow: 0px 0px 5px rgba(102,102,102,0.46);background: #ffffff;text-align: center;font-family: Sarabun, sans-serif;margin-top: 10px;">
     <div class="row no-gutters row-cols-3" style="height: 30px;">
         <div class="col-md-4" style="height: 100%;">
-            <h4 class="text-center d-flex d-xl-flex align-items-center justify-content-xl-start" style="width: 100%;margin-bottom: 0px;font-style: normal;font-weight: normal;font-size: 15px;height: 100%;"><strong>#${ol.orderId}</strong><br /></h4>
+            <h4 class="text-center d-flex d-xl-flex align-items-center justify-content-xl-start" style="width: 100%;margin-bottom: 0px;font-style: normal;font-weight: normal;font-size: 15px;height: 100%;"><strong>#OD${ol.orderId}</strong> <br /></h4>
         </div>
         <div class="col-md-4" style="font-weight: normal;font-style: normal;font-size: 20px;height: 100%;">
-            <h4 class="text-center d-flex d-xl-flex align-items-center justify-content-xl-start" style="width: 100%;margin-bottom: 0px;font-style: normal;font-weight: normal;font-size: 15px;height: 100%;">${ol.user.firstname}</h4>
+            <h4 class="text-center d-flex d-xl-flex align-items-center justify-content-xl-start" style="width: 100%;margin-bottom: 0px;font-style: normal;font-weight: normal;font-size: 15px;height: 100%;"><strong>#${ol.userId} </strong> | ${ol.user.firstname}</h4>
         </div>
         <div class="col-md-4 d-flex d-xl-flex justify-content-end align-items-center justify-content-xl-end" style="font-weight: normal;font-style: normal;font-size: 20px;height: 100%;"><a class="btn btn-primary d-flex d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center" role="button" style="height: 100%;background: rgb(241,57,90);border-style: none;box-shadow: 0px 0px 10px 3px rgba(241,57,90,0.55);"
-                href="Report?order_id=${ol.orderId}&amp;orderby=${ol.user.firstname}"><i class="fa fa-info-circle" style="margin-right: 10px;"></i>ข้อมูล</a></div>
+                href="Report?order_id=${ol.orderId}&amp;orderby=${ol.user.firstname}&amp;userId=${ol.userId}" ><i class="fa fa-info-circle" style="margin-right: 10px;"></i>ข้อมูล</a></div>
     </div>
 </div>
                 </c:forEach>

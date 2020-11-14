@@ -53,8 +53,9 @@
     </nav>
     <div class="container" style="height: 100%;margin-top: 140px;">
         <div>
-            <h4 class="text-left" style="width: auto;margin-bottom: 15px;font-style: normal;font-weight: bold;font-family: Sarabun, sans-serif;"><i class="fa fa-cube" style="margin-right: 10px;"></i>คุณ<strong>${fname}</strong></h4>
-            <h4 class="text-left" style="width: auto;margin-bottom: 20px;font-style: normal;font-weight: bold;font-family: Sarabun, sans-serif;font-size: 18px;"><i class="fa fa-tags" style="margin-right: 10px;"></i>ออเดอร์#<strong>${orderId}</strong></h4>
+            <h4 class="text-left" style="width: auto;margin-bottom: 15px;font-style: normal;font-weight: bold;font-family: Sarabun, sans-serif;"><i class="fa fa-cube" style="margin-right: 10px;"></i>#${userID} คุณ<strong>${fname} ${userPhone} </strong></h4>
+            <h4 class="text-left" style="width: auto;margin-bottom: 20px;font-style: normal;font-weight: bold;font-family: Sarabun, sans-serif;font-size: 18px;"><i class="fa fa-tags" style="margin-right: 10px;"></i>ออเดอร์#${orderId}</h4>
+        <h4 class="text-left" style="width: auto;margin-bottom: 20px;font-style: normal;font-weight: bold;font-family: Sarabun, sans-serif;font-size: 18px;"><i class="fa fa-tags" style="margin-right: 10px;"></i>เป็นลูกค้าของ  ${adminName} รหัสเชิญ ${adminCode}</h4>
         </div>
         <div class="card" style="border-radius: 0;border-style: none;margin-bottom: 20px;background: rgba(255,255,255,0);">
             <div class="card-body" style="border-radius: 15px;border-style: none;box-shadow: 0px 0px 5px rgba(102,102,102,0.46);background: #ffffff;text-align: center;font-family: Sarabun, sans-serif;padding-bottom: 15px;padding-top: 15px;">

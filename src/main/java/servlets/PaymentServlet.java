@@ -10,10 +10,10 @@ import controllers.OrderController;
 import controllers.PaymentController;
 import controllers.ProductController;
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import models.Admin;
 import models.Cart;
-import models.Order;
+
 import models.OrderDetail;
 import models.Product;
 import models.User;
@@ -57,7 +57,7 @@ public class PaymentServlet extends HttpServlet {
        
         
         
-        ArrayList<Cart> orderList = (ArrayList<Cart>) request.getSession().getAttribute("cartview");
+        ArrayList<Cart> orderList = (ArrayList<Cart>) request.getSession().getAttribute("cartview"); //get orderList form cartview 
         
         //System.out.println(orderList);
         Product p;
@@ -112,7 +112,7 @@ public class PaymentServlet extends HttpServlet {
             request.getRequestDispatcher("/completeOrder.jsp").forward(request, response);
 
         } else {
-            System.out.println("4");
+            System.out.println("error");
         }
 
     }

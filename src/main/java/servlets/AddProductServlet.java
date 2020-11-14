@@ -5,25 +5,21 @@
  */
 package servlets;
 
-import controllers.AdminController;
-import controllers.OrderController;
+import controllers.ProductController;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import models.Order;
+import models.Admin;
+import models.Product;
 
 /**
  *
  * @author User
  */
-public class OrderViewServlet extends HttpServlet {
+public class AddProductServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,15 +31,31 @@ public class OrderViewServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
+            throws ServletException, IOException {
+         
+       String pname  = request.getParameter("productname");
+       String price  = request.getParameter("price"); 
+       
+       if (pname.trim().isEmpty() || price.trim().isEmpty()) {
+            
+            request.getRequestDispatcher("/loginAdmin").forward(request, response);
+        }
+       
+       
+        ProductController pct = new ProductController();
+        Product p = new Product(pname, Integer.valueOf(price));
         
+        Admin a = (Admin) request.getSession().getAttribute("admin");
         
-        OrderController oct = new OrderController();
-        ArrayList<Order> o = oct.getAllOrder();
-        request.getSession();
-        request.setAttribute("orderlist", o);
+        if(a != null){
+             pct.addProduct(p);
+        request.getRequestDispatcher("Product").forward(request, response);
         
-        request.getRequestDispatcher("/orderview.jsp").forward(request, response);
+        }else{
+            request.getRequestDispatcher("AdminHome").forward(request, response);
+        }
+        
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -58,11 +70,7 @@ public class OrderViewServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(OrderViewServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -76,11 +84,7 @@ public class OrderViewServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(OrderViewServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

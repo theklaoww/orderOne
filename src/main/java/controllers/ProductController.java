@@ -42,6 +42,26 @@ public class ProductController {
         return null;
     }
     
+    public Product removeProductById(int productId) throws SQLException {
+
+        try {
+
+            conn = BuildConnection.getConnection();
+            PreparedStatement ps = conn.prepareStatement("DELETE FROM products where pid = ?");
+            ps.setInt(1, productId);
+            ps.execute();
+            
+            System.out.println("done");
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductController.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("not done");
+        }
+        return null;
+    }
+    
+    
+    
     public Product getProductIdByProductName(String productName) throws SQLException {
 
         try {
@@ -74,4 +94,24 @@ public class ProductController {
         return productList;
     }
 
+    public boolean addProduct(Product p) {
+        try {
+            conn = BuildConnection.getConnection();
+            PreparedStatement ps = conn.prepareStatement("insert into products (product_name, product_price) values (?,?)");
+            ps.setString(1, p.getProductName());
+            ps.setInt(2, p.getProductPrice());
+            ps.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+
+    }
+    
+    public static void main(String[] args) throws SQLException {
+        ProductController pct = new ProductController();
+        Product p = new Product("test", 3000);
+        pct.addProduct(p);
+    }
 }

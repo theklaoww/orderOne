@@ -51,7 +51,7 @@
             <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="border-radius: 44px;background: rgb(54,143,252);">Log In</button></form>
 
 
-
+<span class="d-flex justify-content-center actions" style="padding-bottom: 36px;padding-top: 39px;"><a class="d-flex justify-content-center align-items-center justify-content-lg-center login" href="index.html" style="padding-right: 0px;font-family: Montserrat, sans-serif;font-weight: bold;font-size: 18px;border-radius: 26px;width: 167px;border-width: 2px;border-style: solid;">home</a></span>
     </div>
             <div style="height: 163px;"></div>
  <div class="footer-dark" style="height: 222px;">

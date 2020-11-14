@@ -53,7 +53,7 @@ public class LoginAdminServlet extends HttpServlet {
                 request.getSession().setAttribute("adminLname", a.getLastname());
                 request.getSession().setAttribute("adminCODE", a.getCode());
                 
-                request.getRequestDispatcher("/WEB-INF/adminHome.jsp").forward(request, response);
+                request.getRequestDispatcher("/AdminHome").forward(request, response);
 
             } else {
                 request.setAttribute("loginResult", "falseja");

@@ -5,8 +5,10 @@
  */
 package servlets;
 
+import controllers.AdminController;
 import controllers.OrderController;
 import controllers.ProductController;
+import controllers.UserController;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -20,8 +22,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.Admin;
 import models.OrderDetail;
 import models.Product;
+import models.User;
 
 /**
  *
@@ -41,47 +45,58 @@ public class ReportServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
-        
+
         String orderId = request.getParameter("order_id");
         String orderBy = request.getParameter("orderby");
-        
-        if(orderId.isEmpty() || orderBy.isEmpty()) {
-            response.sendRedirect("OrderView");
-            return;
-        }
-        
+        String userId = request.getParameter("userId");
+
+//        if(orderId.isEmpty() || orderBy.isEmpty()) { //make e
+//            response.sendRedirect("OrderView");
+//            return;
+//        }
+//        
         OrderController oct = new OrderController();
         ArrayList<OrderDetail> od = oct.getOrderDetial(Integer.valueOf(orderId));
 
         ProductController pct = new ProductController();
-        
-        ArrayList<List> orderDetails = new ArrayList<>();
-        
-        int totalPrice = 0;
+        AdminController act = new AdminController();
+        UserController uct = new UserController();
+        User u = uct.getUserById(Integer.valueOf(userId));
+        Admin a = act.getAdminByCode(u.getCode());
 
+        ArrayList<List> orderDetails = new ArrayList<>();
+
+        int totalPrice = 0;
+        System.out.println(userId);
+        System.out.println(u);
+        System.out.println(a);
+        System.out.println("======");
         for (OrderDetail orderDetail : od) {
+
             Product p = pct.getProductById(orderDetail.getProductId());
             System.out.println(p.getProductName());
             System.out.println(orderDetail.getAmount());
             System.out.println(p.getProductPrice() * orderDetail.getAmount());
-            
+
             int price = p.getProductPrice() * orderDetail.getAmount();
-            
+
             totalPrice = totalPrice + price;
-            
+
             List<String> result = Arrays.asList(String.valueOf(p.getProductName()), String.valueOf(orderDetail.getAmount()), String.valueOf(price));
             orderDetails.add(result); // ad
         }
-        
+
         //[{}, {}, {}]
+        request.setAttribute("userID", u.getId());
+        request.setAttribute("userPhone", u.getPhoneNumber());
+        request.setAttribute("adminName", a.getFirstname());
+        request.setAttribute("adminCode", a.getCode());
         request.setAttribute("fname", orderBy);
         request.setAttribute("orderId", orderId);
         request.setAttribute("totalP", totalPrice);
         request.setAttribute("orderDetails", orderDetails);
         request.getRequestDispatcher("/report.jsp").forward(request, response);
     }
-        
-    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

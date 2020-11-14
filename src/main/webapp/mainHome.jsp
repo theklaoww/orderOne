@@ -44,7 +44,7 @@
                     class="collapse navbar-collapse d-xl-flex justify-content-xl-center" id="navcol-1">
                     <ul class="nav navbar-nav d-xl-flex mr-auto justify-content-xl-center">
                         <li class="nav-item text-center d-flex justify-content-center" style="padding-right: 0px;"></li>
-                    </ul><span class="d-flex justify-content-center navbar-text actions"><a class="d-flex align-items-center login" href="profile#" style="padding-right: 19px;font-family: Montserrat, sans-serif;font-weight: bold;font-size: 18px;">proflie</a><a class="btn btn-light d-flex align-items-center action-button" role="button" href="Logout" style="background: rgba(248,249,250,0.13);border-width: 0px;font-family: Montserrat, sans-serif;font-weight: bold;font-size: 18px;">logout</a></span></div>
+                    </ul><span class="d-flex justify-content-center navbar-text actions"><a class="d-flex align-items-center login" href="profile#" style="padding-right: 19px;font-family: Montserrat, sans-serif;font-weight: bold;font-size: 18px;"> </a><a class="btn btn-light d-flex align-items-center action-button" role="button" href="Logout" style="background: rgba(248,249,250,0.13);border-width: 0px;font-family: Montserrat, sans-serif;font-weight: bold;font-size: 18px;">logout</a></span></div>
             </div>
         </nav>
         
