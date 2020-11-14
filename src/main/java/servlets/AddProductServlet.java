@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import models.Admin;
 import models.Product;
 
@@ -36,7 +37,12 @@ public class AddProductServlet extends HttpServlet {
        String pname  = request.getParameter("productname");
        String price  = request.getParameter("price"); 
        
-       if (pname.trim().isEmpty() || price.trim().isEmpty()) {
+       
+        HttpSession session = request.getSession(false);
+
+        if (session.getAttribute("admin") != null) {
+            
+            if (pname.trim().isEmpty() || price.trim().isEmpty()) {
             
             request.getRequestDispatcher("/loginAdmin").forward(request, response);
         }
@@ -49,11 +55,32 @@ public class AddProductServlet extends HttpServlet {
         
         if(a != null){
              pct.addProduct(p);
+             request.setAttribute("msg","111");
         request.getRequestDispatcher("Product").forward(request, response);
         
         }else{
             request.getRequestDispatcher("AdminHome").forward(request, response);
         }
+
+        } else if (session.getAttribute("user") != null) {
+            request.getSession().invalidate();
+            request.getRequestDispatcher("/index.html").forward(request, response);
+        } else{
+            request.getSession().invalidate();
+            request.getRequestDispatcher("/AdminHome").forward(request, response);
+        }
+
+    
+       
+       
+       
+       
+       
+       
+       
+       
+
+       
         
        
     }

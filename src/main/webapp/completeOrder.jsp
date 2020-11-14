@@ -46,7 +46,7 @@
                     class="collapse navbar-collapse d-xl-flex justify-content-xl-center" id="navcol-2">
                     <ul class="nav navbar-nav d-xl-flex mr-auto justify-content-xl-center">
                         <li class="nav-item text-center d-flex justify-content-center" style="padding-right: 0px;"></li>
-                    </ul><span class="d-flex justify-content-center navbar-text actions"><a class="d-flex align-items-center login" href="login.jsp" style="padding-right: 19px;font-family: Montserrat, sans-serif;font-weight: bold;font-size: 18px;">proflie</a><a class="btn btn-light d-flex align-items-center action-button" role="button" href="/OrderOne/Logout" style="background: rgba(248,249,250,0.13);border-width: 0px;font-family: Montserrat, sans-serif;font-weight: bold;font-size: 18px;">logout</a> </span></div>
+                    </ul><span class="d-flex justify-content-center navbar-text actions"><a class="d-flex align-items-center login" href="login.jsp" style="padding-right: 19px;font-family: Montserrat, sans-serif;font-weight: bold;font-size: 18px;"></a><a class="btn btn-light d-flex align-items-center action-button" role="button" href="/OrderOne/Logout" style="background: rgba(248,249,250,0.13);border-width: 0px;font-family: Montserrat, sans-serif;font-weight: bold;font-size: 18px;">logout</a> </span></div>
             </div>
         </nav>
         <div style="height: 131px;"></div>
@@ -76,7 +76,7 @@
                 <div class="d-flex justify-content-center" style="width: 100%;height: 100%;margin-right: auto;margin-left: auto;margin-top: 0px;">
                     <div class="row no-gutters row-cols-1 justify-content-center align-items-center" style="height: 60px;">
                         <div class="col-md-4" style="font-weight: normal;font-style: normal;font-size: 20px;height: 100%;width: 100%;max-width: none;"><a class="btn btn-primary d-flex justify-content-center align-items-center" role="button" style="font-family: Sarabun, sans-serif;width: 296px;height: 45px;margin-top: 0;border-radius: 34px;min-width: 296px;background: rgb(255,255,255);color: rgb(51,51,51);border-width: 2px;border-style: solid;box-shadow: 0px 0px 9px 2px rgba(14,160,255,0.34);"
-                                                                                                                                                          href="mainHome.jsp">กลับไปยังหน้าหลัก</a></div>
+                                                                                                                                                          href="Home">กลับไปยังหน้าหลัก</a></div>
                     </div>
                 </div>
             </div>

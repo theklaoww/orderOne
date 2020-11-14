@@ -22,6 +22,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import models.Admin;
 import models.OrderDetail;
 import models.Product;
@@ -54,48 +55,54 @@ public class ReportServlet extends HttpServlet {
 //            response.sendRedirect("OrderView");
 //            return;
 //        }
-//        
         OrderController oct = new OrderController();
         ArrayList<OrderDetail> od = oct.getOrderDetial(Integer.valueOf(orderId));
-
         ProductController pct = new ProductController();
         AdminController act = new AdminController();
         UserController uct = new UserController();
-        User u = uct.getUserById(Integer.valueOf(userId));
-        Admin a = act.getAdminByCode(u.getCode());
+        HttpSession session = request.getSession(false);
 
-        ArrayList<List> orderDetails = new ArrayList<>();
+        if (session.getAttribute("admin") != null) {
 
-        int totalPrice = 0;
-        System.out.println(userId);
-        System.out.println(u);
-        System.out.println(a);
-        System.out.println("======");
-        for (OrderDetail orderDetail : od) {
+            User u = uct.getUserById(Integer.valueOf(userId));
+            Admin a = act.getAdminByCode(u.getCode());
 
-            Product p = pct.getProductById(orderDetail.getProductId());
-            System.out.println(p.getProductName());
-            System.out.println(orderDetail.getAmount());
-            System.out.println(p.getProductPrice() * orderDetail.getAmount());
+            ArrayList<List> orderDetails = new ArrayList<>();
 
-            int price = p.getProductPrice() * orderDetail.getAmount();
+            int totalPrice = 0;
 
-            totalPrice = totalPrice + price;
+            for (OrderDetail orderDetail : od) {
+                Product p = pct.getProductById(orderDetail.getProductId());
+                System.out.println(p.getProductName());
+                System.out.println(orderDetail.getAmount());
+                System.out.println(p.getProductPrice() * orderDetail.getAmount());
 
-            List<String> result = Arrays.asList(String.valueOf(p.getProductName()), String.valueOf(orderDetail.getAmount()), String.valueOf(price));
-            orderDetails.add(result); // ad
+                int price = p.getProductPrice() * orderDetail.getAmount();
+
+                totalPrice = totalPrice + price;
+
+                List<String> result = Arrays.asList(String.valueOf(p.getProductName()), String.valueOf(orderDetail.getAmount()), String.valueOf(price));
+                orderDetails.add(result); // ad
+            }
+
+            request.setAttribute("userID", u.getId());
+            request.setAttribute("userPhone", u.getPhoneNumber());
+            request.setAttribute("adminName", a.getFirstname());
+            request.setAttribute("adminCode", a.getCode());
+            request.setAttribute("fname", orderBy);
+            request.setAttribute("orderId", orderId);
+            request.setAttribute("totalP", totalPrice);
+            request.setAttribute("orderDetails", orderDetails);
+            request.getRequestDispatcher("/report.jsp").forward(request, response);
+
+        } else if (session.getAttribute("user") != null) {
+            request.getSession().invalidate();
+            request.getRequestDispatcher("/index.html").forward(request, response);
+        } else {
+            request.getSession().invalidate();
+            request.getRequestDispatcher("/AdminHome").forward(request, response);
         }
 
-        //[{}, {}, {}]
-        request.setAttribute("userID", u.getId());
-        request.setAttribute("userPhone", u.getPhoneNumber());
-        request.setAttribute("adminName", a.getFirstname());
-        request.setAttribute("adminCode", a.getCode());
-        request.setAttribute("fname", orderBy);
-        request.setAttribute("orderId", orderId);
-        request.setAttribute("totalP", totalPrice);
-        request.setAttribute("orderDetails", orderDetails);
-        request.getRequestDispatcher("/report.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

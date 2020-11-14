@@ -41,7 +41,7 @@
 
 <body style="background: #f1f7fc;">
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
-        <div class="container"><a class="navbar-brand" href="/OrderOne/index.jsp"><img src="assets/img/orderOneLogo.png" style="width: 190px;max-width: 190px;min-width: 175px;"><div></div><h4 class="text-center" style="width: auto;margin-bottom: 0px;font-family: Alata, sans-serif;background: #ffffff;border-radius: 14px;color: #6f6f70;font-size: 17px;">Admin Portal</h4></a>
+        <div class="container"><a class="navbar-brand" href="/OrderOne/index.html"><img src="assets/img/orderOneLogo.png" style="width: 190px;max-width: 190px;min-width: 175px;"><div></div><h4 class="text-center" style="width: auto;margin-bottom: 0px;font-family: Alata, sans-serif;background: #ffffff;border-radius: 14px;color: #6f6f70;font-size: 17px;">Admin Portal</h4></a>
             <button
                 data-toggle="collapse" class="navbar-toggler" data-target="#navcol-2" style="border-style: none;font-size: 24px;"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon" style="font-weight: normal;"></span></button>
                 <div class="collapse navbar-collapse d-xl-flex justify-content-xl-center" id="navcol-2">
@@ -79,7 +79,7 @@
                         href="Product"><i class="fa fa-cubes" style="width: 25px;font-size: 22px;margin-left: 16px;margin-right: 17px;text-align: center;"></i>จัดการสินค้า</a></div>
                 <div class="col-md-6 d-sm-flex d-md-flex d-lg-flex d-xl-flex justify-content-sm-center justify-content-md-center justify-content-lg-center justify-content-xl-center"
                     style="padding-right: 0px;padding-left: 0px;margin-right: 0px;text-align: center;"><a class="btn btn-primary d-flex align-items-center" role="button" data-aos="fade-up" data-aos-delay="300" style="font-family: Sarabun, sans-serif;width: 326px;height: 65px;margin-top: 4px;border-radius: 10px;background: linear-gradient(50deg, #f1395a, #fc975f);min-width: 251px;margin-right: 4px;margin-left: 4px;padding-right: 0px;font-size: 20px;min-height: 65px;max-width: 379px;padding-left: 0px;text-align: left;margin-bottom: 4px;border-style: none;"
-                        href="/OrderOne/OrderView"><i class="fa fa-paste" style="width: 25px;font-size: 22px;margin-left: 16px;margin-right: 17px;text-align: center;"></i>รายงานการสั่งซื้อ</a></div>
+                        href="OrderView"><i class="fa fa-paste" style="width: 25px;font-size: 22px;margin-left: 16px;margin-right: 17px;text-align: center;"></i>รายงานการสั่งซื้อ</a></div>
             </div>
         </div>
     </div>

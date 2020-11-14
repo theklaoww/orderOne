@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import models.Product;
 
 /**
@@ -34,13 +35,24 @@ public class RemoveProductServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
-        
-        String productId = request.getParameter("productid");
-        
-        ProductController pct = new ProductController();
-        Product p = pct.removeProductById(Integer.valueOf(productId));
-        request.getRequestDispatcher("Product").forward(request, response);
-        
+        HttpSession session = request.getSession(false);
+
+        if (session.getAttribute("admin") != null) {
+
+            String productId = request.getParameter("productid");
+
+            ProductController pct = new ProductController();
+            Product p = pct.removeProductById(Integer.valueOf(productId));
+            request.setAttribute("msg", "222");
+            request.getRequestDispatcher("Product").forward(request, response);
+        } else if (session.getAttribute("user") != null) {
+            request.getSession().invalidate();
+            request.getRequestDispatcher("/index.html").forward(request, response);
+        } else {
+            request.getSession().invalidate();
+            request.getRequestDispatcher("/AdminHome").forward(request, response);
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

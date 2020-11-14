@@ -50,6 +50,13 @@
     <h4
         class="text-left" style="width: auto;margin-bottom: 10px;font-style: normal;font-weight: bold;font-family: Sarabun, sans-serif;"><i class="fa fa-inbox" style="margin-right: 10px;"></i>รายงานการสั่งสินค้า</h4>
 </div>
+        <%
+                    if (request.getAttribute("msg") != null && request.getAttribute("msg") == "222") {
+                %>
+            <h4 class="text-center" style="width: auto;margin-bottom: 10px;font-style: normal;font-weight: bold;font-family: Sarabun, sans-serif;background: rgba(230,61,63,0.17);border-radius: 28px;font-size: 20px;padding-top: 10px;padding-bottom: 10px;color: rgb(235,37,49);border-style: none;"><i class="fas fa-trash" style="margin-right: 10px;"></i>ลบรายการ ทั้งหมดเรียบร้อย</h4>
+                    <%
+                        }
+                    %>
         <div class="card-body" style="border-radius: 15px;border-style: none;box-shadow: 0px 0px 8px 2px rgba(241,57,90,0.64);background: #f1395a;text-align: center;font-family: Sarabun, sans-serif;">
     <div class="row no-gutters row-cols-3" style="height: 30px;color: rgb(255,255,255);">
         <div class="col-md-4" style="height: 100%;">

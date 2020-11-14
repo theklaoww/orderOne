@@ -11,7 +11,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>orderOne2</title>
+        <title>admin portal- Product</title>
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata">
@@ -45,7 +45,25 @@
                 <h4 class="text-left d-flex justify-content-center" style="width: auto;margin-bottom: 20px;font-style: normal;font-weight: bold;font-family: Sarabun, sans-serif;"><a class="btn btn-primary d-flex d-xl-flex justify-content-center align-items-center justify-content-lg-center justify-content-xl-center align-items-xl-center"  href="addProduct.jsp" style="height: 100%;background: rgb(56,177,119);border-style: none;box-shadow: 0px 0px 10px 3px rgba(56,177,119,0.6);width: 125px;"><i class="fas fa-plus" style="margin-right: 10px;"></i>เพิ่มสินค้า</a></h4>
                 <h4
                     class="text-left" style="width: auto;margin-bottom: 10px;font-style: normal;font-weight: bold;font-family: Sarabun, sans-serif;"><i class="fa fa-cubes" style="margin-right: 10px;"></i>สินค้าทั้งหมด</h4>
+                    <h4
+                    
             </div>
+                        <%
+                    if (request.getAttribute("msg") != null && request.getAttribute("msg") == "111") {
+                %>
+            <h4 class="text-center" style="width: auto;margin-bottom: 10px;font-style: normal;font-weight: bold;font-family: Sarabun, sans-serif;background: rgba(56,177,119,0.21);border-radius: 28px;font-size: 20px;padding-top: 10px;padding-bottom: 10px;color: rgb(56,177,119);"><i class="fas fa-check" style="margin-right: 10px;"></i>เพิ่มเรียบร้อย</h4>
+                    <%
+                        }
+                    %>
+                    
+                     <%
+                    if (request.getAttribute("msg") != null && request.getAttribute("msg") == "222") {
+                %>
+            <h4 class="text-center" style="width: auto;margin-bottom: 10px;font-style: normal;font-weight: bold;font-family: Sarabun, sans-serif;background: rgba(228,32,79,0.22);border-radius: 28px;font-size: 20px;padding-top: 10px;padding-bottom: 10px;color: rgb(228,32,79);"><i class="fas fa-trash" style="margin-right: 10px;"></i>ลบสินค้าเรียบร้อย!</h4>
+                    <%
+                        }
+                    %>
+                        
             <div class="card d-xl-flex justify-content-xl-center" style="border-radius: 0;border-style: none;margin-bottom: 10px;background: rgba(255,255,255,0);">
                 <div class="card-body" style="border-radius: 14px;border-style: none;box-shadow: 0px 0px 8px 2px rgba(56,177,119,0.54);background: #38b177;text-align: center;font-family: Sarabun, sans-serif;">
                     <div class="row no-gutters row-cols-3" style="height: 30px;color: rgb(255,255,255);">

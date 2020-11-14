@@ -32,13 +32,17 @@ public class AdminHomeServlet extends HttpServlet {
             throws ServletException, IOException {
         Admin a = (Admin) request.getSession().getAttribute("admin");
 
-        if (a == null) {
-            request.getSession().setAttribute("admin", a);
+        if (a != null) {
+            //request.getSession().setAttribute("admin", a);
             request.getRequestDispatcher("/WEB-INF/adminHome.jsp").forward(request, response);
+            System.out.println("admin");
+            System.out.println(a);
+            System.out.println("++++");
             return;
-        }
-        request.getRequestDispatcher("/WEB-INF/adminHome.jsp").forward(request, response);
 
+        }
+
+        request.getRequestDispatcher("/loginAdmin.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

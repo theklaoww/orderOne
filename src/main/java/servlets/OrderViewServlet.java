@@ -17,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import models.Order;
 
 /**
@@ -37,13 +38,30 @@ public class OrderViewServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         
-        
         OrderController oct = new OrderController();
         ArrayList<Order> o = oct.getAllOrder();
         request.getSession();
-        request.setAttribute("orderlist", o);
+        HttpSession session = request.getSession(false);
         
-        request.getRequestDispatcher("/orderview.jsp").forward(request, response);
+        if (session.getAttribute("admin") != null) {
+           
+            
+            
+            request.setAttribute("orderlist", o);
+            
+
+            request.getRequestDispatcher("/orderview.jsp").forward(request, response);
+            
+        } else if (session.getAttribute("user") != null) {
+            request.getSession().invalidate();
+            request.getRequestDispatcher("/index.html").forward(request, response);
+        } else {
+            request.getSession().invalidate();
+            request.getRequestDispatcher("/AdminHome").forward(request, response);
+        }
+
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
