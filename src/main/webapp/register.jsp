@@ -36,7 +36,7 @@
 
     <body>
         <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
-    <div class="container"><a class="navbar-brand" href="#"><img src="orderOneLogo.png" style="width: 190px;max-width: 190px;min-width: 175px;" /></a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler" style="border-style: none;font-size: 24px;"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon" style="font-weight: normal;"></span></button>
+    <div class="container"><a class="navbar-brand" href="index.html"><img src="orderOneLogo.png" style="width: 190px;max-width: 190px;min-width: 175px;" /></a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler" style="border-style: none;font-size: 24px;"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon" style="font-weight: normal;"></span></button>
         <div
             class="collapse navbar-collapse d-xl-flex justify-content-xl-center" id="navcol-1">
             <ul class="nav navbar-nav d-xl-flex mr-auto justify-content-xl-center">
